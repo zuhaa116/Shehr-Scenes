@@ -4,7 +4,7 @@ Shehr Scenes is a web platform connecting people across Pakistan to cultural, so
 
 ## Live Demo
 
-
+ https://zuhaa116.github.io/Shehr-Scenes/
 
 ## Key Features
 
