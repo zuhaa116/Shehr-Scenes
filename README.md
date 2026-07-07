@@ -4,7 +4,7 @@ Shehr Scenes is a web platform connecting people across Pakistan to cultural, so
 
 ## Live Demo
 
-[Add GitHub Pages link here once deployed]
+
 
 ## Key Features
 
@@ -70,4 +70,4 @@ Works on modern browsers including Chrome, Firefox, Safari, and Edge.
 
 ## Copyright
 
-© 2026 Zuhaa. All rights reserved. This project and its content, including code, design, and assets, may not be copied, reproduced, or reused without permission.
+© 2026 ZuhaaNadeem, Eman Fatima, Emaan Abrar. All rights reserved. This project and its content, including code, design, and assets, may not be copied, reproduced, or reused without permission.
