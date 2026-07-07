@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Shehr Scenes — Explore</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="bg-teal explore-page">
+
+  <!-- NAVBAR -->
+  <header class="navbar">
+    <div class="nav-inner container">
+      <div class="brand">
+        <div class="logo-flag" aria-hidden="true"></div>
+        <span class="brand-text">SHEHR<br/>SCENES</span>
+      </div>
+
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="home.html">home</a>
+        <a href="cities.html">cities</a>
+        <a href="events.html">events</a>
+        <a href="communities.html">communities</a>
+        <a href="profile.html">Profile</a>
+        <a href="explore.html" class="cta">login/signup</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- EXPLORE GRID: 3-column layout (cities / events / login) -->
+  <main class="container explore-main" role="main">
+    <div class="explore-grid">
+
+      <!-- LEFT: Cities (Explore Cities CTA + grid) -->
+      <aside class="section cities-section" aria-labelledby="citiesHeading">
+        <a href="cities.html" class="section-button large">Explore Cities</a>
+
+        <div class="city-grid compact">
+          <a class="city-card small" href="lahore.html">
+            <img src="images/lahore.jpg" alt="Lahore" class="city-img">
+            <div class="city-label-below">LAHORE</div>
+          </a>
+
+          <a class="city-card small" href="karachi.html">
+            <img src="images/karachi.jpg" alt="Karachi" class="city-img">
+            <div class="city-label-below">KARACHI</div>
+          </a>
+
+          <a class="city-card small" href="islamabad.html">
+            <img src="images/islamabad.jpg" alt="Islamabad" class="city-img">
+            <div class="city-label-below">ISLAMABAD</div>
+          </a>
+
+          <a class="city-card small" href="peshawar.html">
+            <img src="images/peshawar.jpg" alt="Peshawar" class="city-img">
+            <div class="city-label-below">PESHAWAR</div>
+          </a>
+
+          <a class="city-card small" href="sialkot.html">
+            <img src="images/sialkot.jpg" alt="Sialkot" class="city-img">
+            <div class="city-label-below">SIALKOT</div>
+          </a>
+
+          <a class="city-card small" href="multan.html">
+            <img src="images/multan.jpg" alt="Multan" class="city-img">
+            <div class="city-label-below">MULTAN</div>
+          </a>
+        </div>
+      </aside>
+
+      <!-- MIDDLE: Events preview (Explore Events CTA + list) -->
+      <section class="section events-section" aria-labelledby="eventsHeading">
+        <a href="events.html" class="section-button large emphasize">Explore Events</a>
+
+        <div class="events-list vertical">
+          <article class="event-card preview">
+            <img class="event-thumb" src="images/event-pop.jpg" alt="Pakistani Pop Concert">
+            <div class="event-body">
+              <h3>Pakistani Pop Concert</h3>
+              <p class="muted">Blue Lagoon, Rawalpindi — Music & Culture</p>
+            </div>
+          </article>
+
+          <article class="event-card preview">
+            <img class="event-thumb" src="images/event-faiz.jpg" alt="Faiz Festival">
+            <div class="event-body">
+              <h3>Faiz Festival</h3>
+              <p class="muted">Alhamra Hall, Lahore — Music & Culture</p>
+            </div>
+          </article>
+
+          <article class="event-card preview">
+            <img class="event-thumb" src="images/event-breeze.jpg" alt="The Breeze 2026">
+            <div class="event-body">
+              <h3>The Breeze 2026</h3>
+              <p class="muted">HMR Waterfront, Karachi — Music & Culture</p>
+            </div>
+          </article>
+
+          <article class="event-card preview">
+            <img class="event-thumb" src="images/event-musicconf.jpg" alt="Music Conference">
+            <div class="event-body">
+              <h3>Music Conference</h3>
+              <p class="muted">Lahore — Music & Culture</p>
+            </div>
+          </article>
+
+          <div class="middle-cta">
+            <a href="events.html" class="btn-explore-cream small">See all events</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- RIGHT: Prominent login card (sticky) -->
+      <aside class="section login-column" aria-labelledby="loginHeading">
+        <div class="login-embed login-embed-prominent" role="form" aria-labelledby="loginTitle">
+          <h2 id="loginTitle" class="login-title">Member Login</h2>
+
+          <form class="login-form" action="home.html" method="get" autocomplete="off">
+            <label class="vis-label">
+              <input type="text" name="username" placeholder="user name" required>
+            </label>
+
+            <label class="vis-label">
+              <input type="password" name="password" placeholder="pass word" required>
+            </label>
+
+            <button type="submit" class="btn-login large">login</button>
+          </form>
+
+          <div class="login-links-row">
+            <a class="small-link" href="#">forget password?</a>
+            <a class="small-link" href="signup.html">sign up</a>
+          </div>
+
+          <hr class="sep">
+
+          <div class="login-quick-actions">
+
+            <a class="btn-primary full" href="home.html">Continue to Home</a>
+          </div>
+        </div>
+      </aside>
+
+    </div> <!-- end explore-grid -->
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container footer-inner">
+      <div class="footer-left">connecting pakistan / discover events / celebrate community</div>
+      <div class="footer-right social" aria-hidden="true">
+        <img src="images/insta.jpg" alt="ig">
+        <img src="images/tictok.jpg" alt="tk">
+        <img src="images/whatsapp.jpg" alt="wa">
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,603 @@
+/* style.css — Unified stylesheet for entire site
+   - Single file: copy/paste to replace your existing style.css
+   - Preserves the original layout and behavior for all pages (intro, explore, home, cities, events, communities, profile, contact, city pages)
+   - Applied changes you asked for:
+     1) Header and footer color are the same ( --nav-teal = #11676b )
+     2) Login / Sign button in header (.nav-links a.cta) is now a prominent maroon box
+     3) Profile/contact hero colors updated to coordinate with the rest of the site palette
+   - Keep your HTML files unchanged. Ensure /images contains the referenced assets.
+*/
+
+/* =======================
+   Color variables (original tokens with header/footer overridden)
+   ======================= */
+:root{
+  --bg-deep: #153b43;        /* deep teal / blue (page bg) */
+  --nav-teal: #185f63;       /* NAVBAR & FOOTER color — changed as requested */
+  --cream: #FDFBD4;          /* beige / cream content */
+  --card-bg: #e9e0da;        /* pale card backgrounds */
+  --muted: #6b605b;          /* muted descriptive text */
+  --accent-maroon: #6d2d2d;  /* maroon-ish button */
+  --pill-pink: #f1dada;      /* input pill bg */
+  --white: #ffffff;
+  --text-dark: #052323;
+
+  /* small gradient endpoints using site teal (used by send button) */
+  --send-grad-start: #1fa3a6;
+  --send-grad-end: #11676b;
+
+  --xs: 6px;
+  --sm: 12px;
+  --md: 18px;
+  --lg: 28px;
+  --xl: 40px;
+
+  --container-width: 1140px;
+}
+
+/* =======================
+   Reset & base
+   ======================= */
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{
+  font-family:"Helvetica Neue", Arial, sans-serif;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  color:var(--text-dark);
+  display:flex;
+  flex-direction:column;
+  min-height:100vh;
+  line-height:1.28;
+  background:var(--bg-deep); /* default (explore uses this) */
+}
+
+/* =======================
+   Page background helpers
+   ======================= */
+/* Intro page uses a newspaper PNG as requested */
+.intro-page{
+  background-image: url('images/newspaper.png');
+  background-size:cover;
+  background-position:center;
+  background-repeat:no-repeat;
+  color:#8b1919;
+}
+
+/* Explore page background (teal) */
+.bg-teal{ background:var(--bg-deep); }
+
+/* All other pages (cream) */
+.bg-cream{ background:var(--cream); color:var(--text-dark); }
+
+/* =======================
+   Container
+   ======================= */
+.container{
+  width:var(--container-width);
+  max-width:calc(100% - 40px);
+  margin:0 auto;
+  padding-left:var(--md);
+  padding-right:var(--md);
+}
+
+/* =======================
+   Navbar (shared) — uses var(--nav-teal)
+   ======================= */
+.navbar{
+  background:var(--nav-teal);
+  padding:var(--sm) 0;
+  box-shadow: inset 0 -6px rgba(0,0,0,0.06);
+
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+.nav-inner{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+.brand{
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+.logo-flag{
+  width:64px;height:36px;
+  background-image: url('images/logo-flag.jpg');
+  background-size:cover;
+  border-radius:6px 0 6px 6px;
+  box-shadow: 0 2px 0 rgba(0,0,0,0.15);
+}
+.brand-text{
+  font-weight:700;
+  color:#f6eddc;
+  font-size:14px;
+  line-height:1;
+  letter-spacing:0.8px;
+}
+.nav-links a{
+  text-decoration:none;
+  color:var(--white);
+  margin-left:18px;
+  font-weight:700;
+  padding:8px 8px;
+  text-transform: capitalize;
+  font-size:18px;
+}
+.nav-links a.active{ text-decoration:underline; text-underline-offset:6px; color:var(--white); }
+
+/* Prominent maroon CTA for login / sign button in header */
+.nav-links a.cta{
+  background: var(--accent-maroon);
+  color: var(--white);
+  padding:10px 14px;
+  border-radius:12px;
+  font-weight:900;
+  text-decoration:none;
+  box-shadow: 0 8px 0 rgba(0,0,0,0.12);
+  border: 1px solid rgba(0,0,0,0.06);
+}
+
+/* =======================
+   Footer (shared) — matches header color
+   ======================= */
+.site-footer{
+  background:var(--nav-teal); /* same as header */
+  padding:12px 0;
+  margin-top:auto; /* ensures pinned at bottom */
+}
+.footer-inner{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:6px 0;
+  color:var(--white);
+  font-weight:700;
+}
+.footer-left{ font-size:18px; color:var(--white); }
+.footer-right img,
+.footer-right .social img,
+.profile-contact-footer .cf-right img {
+  width: 28px;              /* adjust size if you want larger/smaller icons */
+  height: 28px;
+  border-radius: 50%;      /* makes them round */
+  object-fit: cover;       /* crops the image to fill the circle */
+  display: inline-block;
+  margin-left: 10px;
+  background: transparent;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.12); /* subtle lift (optional) */
+  vertical-align: middle;}
+/* =======================
+   Intro page
+   ======================= */
+.intro-main{
+  display:flex;
+  flex:1;
+  align-items:center;
+  justify-content:center;
+  padding:var(--xl) 0;
+}
+.intro-inner{ text-align:center; max-width:920px; }
+.urdu-title{
+  font-size:92px;
+  line-height:0.85;
+  color:#8b1919;
+  margin-bottom:18px;
+  font-weight:800;
+  text-shadow: 0 3px 0 rgba(0,0,0,0.12);
+}
+/* intro social icons — circular and cropped */
+.intro-socials .icon,
+.intro-socials .icon img {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  object-fit: cover;
+  display: inline-block;
+  margin: 0 8px;
+  vertical-align: middle;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+}
+.btn-explore{
+  display:inline-block;
+  background:var(--white);
+  color:var(--text-dark);
+  padding:12px 28px;
+  border-radius:26px;
+  font-weight:800;
+  text-decoration:none;
+  box-shadow:0 6px 0 rgba(0,0,0,0.06);
+  margin-top:18px;
+  border: 1px solid rgba(0,0,0,0.03);
+}
+
+/* =======================
+   Page commons
+   ======================= */
+.pages{ padding:var(--lg) 0 60px; }
+.page-title{
+  font-weight:800;
+  color:var(--nav-teal);
+  background:var(--cream);
+  display:inline-block;
+  padding:12px 18px;
+  border-radius:18px;
+  margin-bottom:18px;
+  color:var(--text-dark);
+}
+
+/* =======================
+   Home
+   ======================= */
+.hero-cream{
+  display:flex;
+  gap:var(--lg);
+  align-items:center;
+  padding:28px 0;
+}
+.hero-img{ width:320px; height:220px; object-fit:cover; border-radius:12px; box-shadow:0 6px 0 rgba(0,0,0,0.12); }
+.hero-title-cream{ font-size:40px; margin-bottom:6px; color:var(--text-dark); font-weight:800; }
+.hero-sub-cream{ font-style:italic; color:var(--muted); margin-bottom:12px; }
+.hero-cta-row{ display:flex; gap:12px; margin-top:8px; }
+.btn-explore-cream{
+  display:inline-block;
+  background:var(--accent-maroon);
+  color:var(--white);
+  padding:10px 18px;
+  border-radius:16px;
+  text-decoration:none;
+  box-shadow:0 4px 0 rgba(0,0,0,0.06);
+  font-weight:900;
+  border: 1px solid rgba(255,255,255,0.02);
+}
+
+/* Feature cards */
+.container-inner{ max-width:980px; margin:var(--md) auto; }
+.feature-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:var(--md); }
+.feature{
+  background:var(--card-bg);
+  padding:var(--md);
+  border-radius:12px;
+  box-shadow:0 6px 0 rgba(0,0,0,0.09);
+  text-align:left;
+  color:var(--text-dark);
+}
+.feature-img{ width:100%; height:120px; object-fit:cover; border-radius:8px; margin-bottom:10px; }
+
+/* =======================
+   COMMUNITIES
+   ======================= */
+.community-grid-cream{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:var(--md);
+  margin-top:16px;
+}
+.community-card-cream{
+  background:var(--card-bg);
+  color:var(--text-dark);
+  border-radius:12px;
+  padding:12px;
+  box-shadow:0 6px 0 rgba(0,0,0,0.12);
+}
+.community-img-cream{ width:100%; height:110px; object-fit:cover; border-radius:8px; margin-bottom:10px; }
+
+/* =======================
+   EVENTS
+   ======================= */
+.filters{
+  margin:14px 0 20px;
+  display:flex;
+  gap:12px;
+  flex-wrap:wrap;
+}
+.filter{
+  background:var(--card-bg);
+  color:var(--text-dark);
+  border:none;
+  padding:8px 14px;
+  border-radius:20px;
+  font-weight:700;
+  box-shadow:0 3px 0 rgba(0,0,0,0.06);
+}
+.filter.prominent{
+  background:var(--accent-maroon);
+  color:var(--white);
+  padding:10px 18px;
+  box-shadow:0 6px 0 rgba(0,0,0,0.12);
+}
+.events-list-cream{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:14px;
+  margin-top:12px;
+}
+.event-card-cream{
+  display:flex;
+  gap:12px;
+  background:var(--card-bg);
+  border-radius:10px;
+  padding:12px;
+  color:var(--text-dark);
+  box-shadow: 0 6px 0 rgba(0,0,0,0.09);
+  align-items:center;
+}
+.event-thumb-cream{ width:120px; height:80px; object-fit:cover; border-radius:8px; }
+.event-body-cream h3{ margin-bottom:6px; font-weight:800; }
+
+/* =======================
+   CITIES (cream pages)
+   ======================= */
+.city-grid-cream{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:var(--md);
+  margin-top:18px;
+}
+.city-card-cream{
+  display:block;
+  background:var(--card-bg);
+  color:var(--text-dark);
+  border-radius:12px;
+  overflow:hidden;
+  text-decoration:none;
+  box-shadow: 0 6px 0 rgba(0,0,0,0.12);
+  height:160px;
+}
+.city-img-cream{ width:100%; height:120px; object-fit:cover; display:block; border-radius:12px 12px 0 0; }
+.city-label-cream{ padding:10px 12px; font-weight:800; text-align:center; }
+
+/* =======================
+   EXPLORE page improved layout
+   ======================= */
+.explore-main{ padding:var(--lg) 0; flex:1; }
+.explore-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.1fr 380px;
+  gap: var(--lg);
+  align-items: stretch; /* Change this from 'start' */
+}
+
+/* Section CTA */
+.section-button{
+  display:inline-block;
+  background:var(--white);
+  color:var(--text-dark);
+  padding:12px 18px;
+  border-radius:22px;
+  font-weight:800;
+  text-decoration:none;
+  margin-bottom:14px;
+  box-shadow:0 4px 0 rgba(0,0,0,0.06);
+}
+.section-button.large{ font-size:18px; padding:14px 20px; border-radius:26px; }
+.section-button.emphasize{ box-shadow:0 6px 0 rgba(0,0,0,0.08); }
+
+/* LEFT: city grid compact with labels under images */
+.city-grid.compact{ display:grid; grid-template-columns:repeat(2,1fr); gap:12px; margin-top:10px; }
+.city-card.small{
+  display:block;
+  background:transparent;
+  border-radius:12px;
+  overflow:visible;
+  text-decoration:none;
+  color:var(--text-dark);
+  transition: transform .12s ease;
+}
+.city-card.small .city-img{
+  display:block;
+  width:100%;
+  height:110px;
+  object-fit:cover;
+  border-radius:12px;
+  box-shadow:0 6px 0 rgba(0,0,0,0.12);
+}
+.city-card.small .city-label-below{
+  display:block;
+  background:var(--cream);
+  padding:10px 8px;
+  text-align:center;
+  font-weight:800;
+  margin-top:8px;
+  border-radius:8px;
+  box-shadow:0 4px 0 rgba(0,0,0,0.08);
+  color:var(--text-dark);
+  font-size:14px;
+}
+.city-card.small:hover{ transform:translateY(-6px); }
+
+/* MIDDLE: events vertical list with scrollbar if long */
+.events-list.vertical{ display:flex; flex-direction:column; gap:12px; margin-top:10px; max-height:760px; overflow:auto; padding-right:6px; }
+.event-card.preview{ display:flex; gap:14px; background:var(--card-bg); border-radius:10px; padding:12px; color:var(--text-dark); box-shadow:0 6px 0 rgba(0,0,0,0.09); align-items:center; }
+.event-thumb{ width:136px; height:90px; border-radius:8px; object-fit:cover; }
+.event-body h3{ font-size:16px; margin-bottom:6px; font-weight:800; }
+
+/* middle small CTA */
+.middle-cta{ margin-top:10px; text-align:center; }
+.btn-explore-cream.small{ display:inline-block; background:var(--accent-maroon); color:var(--white); padding:8px 14px; border-radius:14px; text-decoration:none; box-shadow:0 4px 0 rgba(0,0,0,0.06); font-weight:800; }
+
+/* RIGHT: prominent login (sticky desktop) */
+.login-column{ position:relative; }
+.login-embed{ background:var(--card-bg); border-radius:16px; padding:18px; box-shadow:0 8px 0 rgba(0,0,0,0.12); text-align:center; }
+.login-embed-prominent {
+  position: static;  /* remove sticky */
+  margin-top: 0;        /* no offset */
+  padding: 24px;
+  border-radius: 20px;
+  box-shadow: 0 16px 0 rgba(0,0,0,0.12);
+  height: fit-content;
+  z-index: 30;
+}
+.login-title{ color:var(--text-dark); font-size:18px; margin-bottom:20px; margin-top: 0;line-height: 1.2; font-weight:900; }
+.login-form{ display:flex; flex-direction:column; gap:14px; align-items:center; margin-bottom:12px; }
+.vis-label input{ width:92%; padding:14px 16px; border-radius:30px; border:none; background:var(--pill-pink); font-weight:800; text-align:center; font-size:15px; color:var(--text-dark); }
+.btn-login.large{ width:90%; padding:14px 16px; border-radius:28px; border:none; background:var(--accent-maroon); color:var(--white); font-weight:900; font-size:16px; box-shadow:0 10px 0 rgba(0,0,0,0.12); }
+.login-links-row{ display:flex; gap:12px; justify-content:center; margin-top:6px; }
+.small-link{ color:var(--muted); font-size:13px; text-decoration:none; }
+.sep{ margin:12px 0; border:none; height:1px; background:rgba(0,0,0,0.04); }
+.login-quick-actions{ display:flex; flex-direction:column; gap:10px; margin-top:6px; }
+.btn-secondary.full{ display:block; text-decoration:none; padding:10px 14px; background:var(--cream); color:var(--text-dark); border-radius:12px; font-weight:800; box-shadow:0 6px 0 rgba(0,0,0,0.08); }
+.btn-primary.full{ display:block; text-decoration:none; padding:10px 14px; background:var(--accent-maroon); color:var(--white); border-radius:12px; font-weight:900; box-shadow:0 8px 0 rgba(0,0,0,0.12); }
+
+/* =======================
+   PROFILE & CONTACT: professional contact-hero layout (coordinated colors)
+   - These rules replace the previous darker/purple look and use the site's palette
+   - Scoped so other pages won't be affected unless they use the same classes
+   ======================= */
+
+/* Hero / contact block (uses subtle teal tint and card surfaces) */
+.profile-contact-hero{
+  margin:18px 0 30px;
+  border-radius:16px;
+  /* coordinated with site: subtle teal-tinted surface on top of light card */
+  background: linear-gradient(180deg, rgba(17,103,107,0.06) 0%, rgba(233,224,218,0.02) 100%);
+  padding:36px 28px;
+  color:var(--text-dark);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.06);
+}
+
+/* Grid inside hero: left info, right form */
+.profile-contact-hero .contact-grid{
+  display:grid;
+  grid-template-columns: 1fr 420px;
+  gap:28px;
+  align-items:start;
+  max-width:1140px;
+  margin:0 auto;
+}
+
+/* Left column content (coordinated colors) */
+.profile-contact-hero .contact-left h2{
+  font-size:28px;
+  margin-bottom:10px;
+  color:var(--text-dark);
+  font-weight:900;
+}
+.profile-contact-hero .contact-left p.lead{
+  margin-bottom:18px;
+  color:var(--muted);
+  max-width:560px;
+  line-height:1.6;
+}
+
+/* Contact items: icons get teal accent to match header/footer */
+.profile-contact-hero .contact-items{ display:grid; gap:12px; margin-top:18px; }
+.profile-contact-hero .contact-item{ display:flex; gap:12px; align-items:flex-start; color:var(--text-dark); }
+.profile-contact-hero .contact-item .icon{
+  width:44px; height:44px; border-radius:10px; display:flex; align-items:center; justify-content:center;
+  background: linear-gradient(135deg, rgba(23,167,167,0.12), rgba(255,255,255,0.02));
+  color:var(--nav-teal); font-weight:800;
+}
+.profile-contact-hero .contact-item strong{ display:block; color:var(--text-dark); font-weight:800; font-size:14px; }
+.profile-contact-hero .contact-item .small{ color:var(--muted); font-size:13px; }
+
+/* Social row */
+.profile-contact-hero .social-row{ margin-top:18px; display:flex; gap:12px; }
+.profile-contact-hero .social-row img{ width:34px; height:34px; border-radius:50%; background:rgba(0,0,0,0.04); padding:6px; }
+
+/* Right column: form card coordinated with site surfaces */
+.profile-contact-hero .contact-form-card{
+  background: var(--card-bg);
+  padding:20px;
+  border-radius:12px;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.06);
+  color:var(--text-dark);
+}
+.profile-contact-hero .contact-form-card h3{ margin:0 0 12px 0; font-size:18px; font-weight:900; color:var(--text-dark); }
+
+/* Form fields (light inputs consistent with main site) */
+.profile-contact-hero .contact-form-compact .field{ margin-bottom:12px; }
+.profile-contact-hero .contact-form-compact input[type="text"],
+.profile-contact-hero .contact-form-compact input[type="email"],
+.profile-contact-hero .contact-form-compact textarea{
+  width:100%;
+  padding:10px 12px;
+  border-radius:8px;
+  border:1px solid rgba(0,0,0,0.06);
+  background: var(--white);
+  color: var(--text-dark);
+  font-weight:700;
+  outline:none;
+}
+.profile-contact-hero .contact-form-compact input::placeholder,
+.profile-contact-hero .contact-form-compact textarea::placeholder{
+  color:var(--muted);
+  font-weight:700;
+}
+.profile-contact-hero .form-row-2{ display:grid; grid-template-columns: 1fr 1fr; gap:10px; }
+
+/* Send button uses site teal gradient matching header/footer */
+.profile-contact-hero .send-btn{
+  display:inline-block;
+  width:100%;
+  padding:12px 16px;
+  border-radius:28px;
+  border:none;
+  cursor:pointer;
+  font-weight:900;
+  color:#fff;
+  background: linear-gradient(90deg, var(--send-grad-start), var(--send-grad-end));
+  box-shadow: 0 10px 30px rgba(17,163,166,0.18);
+  margin-top:8px;
+}
+.profile-contact-hero .contact-note{ margin-top:10px; color: var(--muted); font-size:13px; }
+
+/* Contact-footer strip (light) below hero */
+.profile-contact-footer{
+  margin-top:22px;
+  padding:18px 0;
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+}
+.profile-contact-footer .contact-footer-inner{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  max-width:var(--container-width);
+  margin:0 auto;
+  padding-left:var(--md);
+  padding-right:var(--md);
+}
+.contact-footer-inner .cf-left{ color:var(--text-dark); font-weight:800; }
+.contact-footer-inner .cf-center a{ color:var(--nav-teal); font-weight:800; }
+.contact-footer-inner .cf-right img{ width:28px; height:28px; margin-left:8px; }
+
+/* =======================
+   Helpers & accessibility
+   ======================= */
+.small-link { font-size:13px; color:var(--muted); text-decoration:none; }
+.sr-only{ position:absolute; left:-9999px; top:auto; width:1px; height:1px; overflow:hidden; }
+.muted{ color:var(--muted); }
+.lead{ font-size:15px; }
+/* =======================
+   Hide navbar & footer on Explore page
+   ======================= */
+.explore-page .navbar,
+.explore-page .site-footer{
+  display: none;
+}
+/* =======================
+   Responsive rules
+   ======================= */
+@media (max-width:1100px){
+  .container{ width:92%; }
+  .explore-grid{ grid-template-columns: 1fr 1fr 320px; gap:20px; }
+  .city-grid.compact{ grid-template-columns:repeat(2,1fr); }
+  .events-list.vertical{ max-height:520px; }
+  .profile-contact-hero .contact-grid{ grid-template-columns: 1fr; }
+}
+@media (max-width:680px){
+  .profile-contact-hero{ padding:36px 18px; }
+  .profile-contact-footer .contact-footer-inner{ flex-direction:column; gap:12px; align-items:flex-start; }
+  .form-row-2{ grid-template-columns:1fr; }
+}
+@media (max-width:480px){
+  .vis-label input{ font-size:14px; padding:12px 14px; }
+  .btn-login.large{ font-size:15px; padding:12px; }
+}
+
+/* =======================
+   End of stylesheet
+   ======================= */

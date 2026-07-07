@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Shehr Scenes — خوش آمدید</title>
+
+  <!-- Urdu Calligraphy Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css" />
+
+  <style>
+    /* Prevent scrolling and fill viewport */
+    html, body {
+      height: 100%;
+      margin: 0;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Apply Urdu font to the title */
+    .urdu-title {
+      font-family: 'Noto Nastaliq Urdu', serif;
+      font-size: 5rem;
+      color: #0D1B2A; /* dark blue */
+      margin-bottom: 2cm;
+      text-align: center;
+    }
+
+    /* Social icons: smaller and spaced */
+    .intro-socials {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .intro-socials img.icon {
+      width: 40px;
+      height: 40px;
+    }
+
+    /* Button color and styling */
+    .btn-explore {
+      background-color: #6d2d2d; /* yellow-orange */
+      color: #fff;
+      padding: 1rem 2rem;
+      border-radius: 0.5rem;
+      text-decoration: none;
+      font-size: 1.2rem;
+      transition: background 0.3s;
+    }
+
+    .btn-explore:hover {
+      background-color: #6d2d2d;
+    }
+
+    /* Center content vertically in the remaining space */
+    .intro-main {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+
+    .intro-inner {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    /* Footer fixed at bottom */
+    footer.site-footer {
+      height: 60px;
+      flex-shrink: 0;
+    }
+  </style>
+</head>
+<body class="intro-page">
+
+  <!-- Intro (no navbar) -->
+  <main class="intro-main" role="main">
+    <div class="intro-inner container">
+      <!-- Large Urdu title -->
+      <h1 class="urdu-title">خوش آمدید</h1>
+
+      <!-- Social icons (visual only) -->
+      <div class="intro-socials" aria-hidden="true">
+        <img src="images/insta.jpg" alt="instagram" class="icon">
+        <img src="images/tictok.jpg" alt="tictok" class="icon">
+        <img src="images/whatsapp.jpg" alt="whatsapp" class="icon">
+      </div>
+
+      <!-- Single central button navigates to the Explore Page -->
+      <a href="explore.html" class="btn-explore">ENTER THE SOUL OF PAKISTAN</a>
+    </div>
+  </main>
+
+  <!-- Footer (must be at very bottom) -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container footer-inner">
+      <div class="footer-left">connecting pakistan / discover events / celebrate community</div>
+      <div class="footer-right social" aria-hidden="true">
+        <img src="images/insta.jpg" alt="ig">
+        <img src="images/tictok.jpg" alt="tk">
+        <img src="images/whatsapp.jpg" alt="wa">
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
+
